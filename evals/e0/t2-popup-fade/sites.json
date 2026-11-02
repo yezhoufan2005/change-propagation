@@ -1,0 +1,11 @@
+{"sites": [
+ {"id": "modal", "tier": "direct", "files": [{"path": "web/src/components/Modal.tsx", "present": "fade|opacity|animation|keyframes|transition|animate"}, {"path": "web/src/components/modal.css", "present": "fade|opacity|animation|keyframes|transition|animate"}]},
+ {"id": "confirm-dialog", "tier": "direct", "files": [{"path": "web/src/components/ConfirmDialog.tsx", "present": "fade|opacity|animation|keyframes|transition|animate"}]},
+ {"id": "bottom-sheet", "tier": "direct", "files": [{"path": "web/src/components/BottomSheet.tsx", "present": "fade|opacity|animation|keyframes|transition|animate"}, {"path": "web/src/components/BottomSheet.module.css", "present": "fade|opacity|animation|keyframes|transition|animate"}]},
+ {"id": "image-lightbox", "tier": "direct", "files": [{"path": "web/src/components/ImageLightbox.tsx", "present": "fade|opacity|animation|keyframes|transition|animate"}, {"path": "web/src/styles/lightbox.css", "present": "fade|opacity|animation|keyframes|transition|animate"}]},
+ {"id": "address-picker-inline", "tier": "direct", "files": [{"path": "web/src/features/checkout/CheckoutPage.tsx", "present": "fade|opacity|animation|keyframes|transition|animate"}]},
+ {"id": "coupon-layer", "tier": "direct", "files": [{"path": "web/src/features/checkout/couponLayer.ts", "present": "fade|opacity|animation|keyframes|transition|animate"}]},
+ {"id": "drawer", "tier": "review", "files": [{"path": "web/src/components/Drawer.tsx", "present": "fade|opacity|animation|keyframes|transition|animate"}, {"path": "web/src/styles/drawer.css", "present": "fade|opacity|animation|keyframes|transition|animate"}], "mention": ["Drawer"]},
+ {"id": "toast", "tier": "review", "files": [{"path": "web/src/components/Toast.tsx", "present": "fade|opacity|animation|keyframes|transition|animate"}, {"path": "web/src/styles/toast.css", "present": "fade|opacity|animation|keyframes|transition|animate"}], "mention": ["Toast"]},
+ {"id": "tooltip", "tier": "exclude", "files": [{"path": "web/src/components/Tooltip.tsx", "keep": "className=\"tooltip-bubble\">\\{text\\}</span>"}]}
+]}

@@ -1,0 +1,54 @@
+{
+ "sites": [
+  {
+   "id": "notice-message",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/components/notice/notice-message.vue",
+     "gone": "\\.notice-message--info\\s*\\{\\s*background:\\s*transparent"
+    }
+   ]
+  },
+  {
+   "id": "share-card",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/views/dashboard/analysis/components/message-share-card/index.vue",
+     "present": "\\binfo['\"]?\\s*:\\s*['\"`]"
+    }
+   ]
+  },
+  {
+   "id": "notice-bell",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/layouts/modules/global-header/components/notice-bell.vue",
+     "gone": "'#18a058'\\s*:\\s*'transparent'"
+    }
+   ]
+  },
+  {
+   "id": "level-pie",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/views/dashboard/analysis/components/message-level-pie/index.vue",
+     "gone": "\\[\\s*'rgba\\(0,\\s*0,\\s*0,\\s*0\\)'"
+    }
+   ]
+  },
+  {
+   "id": "log-line",
+   "tier": "exclude",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/views/system-management-user/system-log/components/log-line.vue",
+     "keep": "\\.log-line--info\\s*\\{\\s*color:\\s*inherit"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,99 @@
+{
+ "sites": [
+  {
+   "id": "register-form",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "web/src/features/auth/RegisterForm.tsx",
+     "gone": "MIN_PASSWORD_LENGTH\\s*=\\s*8\\b",
+     "present": "MIN_PASSWORD_LENGTH\\s*=\\s*12\\b"
+    }
+   ]
+  },
+  {
+   "id": "i18n-zh",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "web/src/i18n/zh.json",
+     "present": "(至少|不能少于) 12 位"
+    }
+   ]
+  },
+  {
+   "id": "i18n-en",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "web/src/i18n/en.json",
+     "present": "at least 12 characters"
+    }
+   ]
+  },
+  {
+   "id": "register-test",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "web/src/features/auth/__tests__/RegisterForm.test.tsx",
+     "gone": "(至少|不能少于) 8 位"
+    }
+   ]
+  },
+  {
+   "id": "reset-form",
+   "tier": "coupled",
+   "files": [
+    {
+     "path": "web/src/features/auth/ResetPasswordForm.tsx",
+     "gone": "pwd\\.length >= 8\\b"
+    }
+   ],
+   "mention": [
+    "ResetPasswordForm"
+   ]
+  },
+  {
+   "id": "server-validator",
+   "tier": "coupled",
+   "files": [
+    {
+     "path": "server/src/validators/user.ts",
+     "gone": "PASSWORD_MIN_LEN\\s*=\\s*8\\b"
+    }
+   ],
+   "mention": [
+    "validators/user",
+    "PASSWORD_MIN_LEN",
+    "validateRegistration"
+   ]
+  },
+  {
+   "id": "api-doc",
+   "tier": "coupled",
+   "files": [
+    {
+     "path": "docs/api.md",
+     "gone": "at least 8 characters"
+    }
+   ],
+   "mention": [
+    "api.md"
+   ]
+  },
+  {
+   "id": "strength-meter",
+   "tier": "review",
+   "files": [
+    {
+     "path": "web/src/features/auth/passwordStrength.ts",
+     "gone": "pwd\\.length >= 8\\b"
+    }
+   ],
+   "mention": [
+    "passwordStrength"
+   ]
+  }
+ ]
+}

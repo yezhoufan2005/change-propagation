@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: e0-t2-popup-fade
+context:
+  scaffold_script: scaffold.sh

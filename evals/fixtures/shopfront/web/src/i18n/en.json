@@ -1,0 +1,10 @@
+{
+  "auth.email": "Email",
+  "auth.passwordHint": "Password (at least 8 characters)",
+  "auth.passwordTooShort": "Password must be at least 8 characters",
+  "auth.confirmPassword": "Confirm password",
+  "auth.register": "Sign up",
+  "auth.resetPassword": "Reset password",
+  "checkout.title": "Checkout",
+  "orders.empty": "No orders yet"
+}

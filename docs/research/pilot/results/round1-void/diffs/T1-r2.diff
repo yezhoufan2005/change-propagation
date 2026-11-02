@@ -1,0 +1,75 @@
+diff -ruN cp-pilot-meta/pristine/shopfront/web/src/features/auth/RegisterForm.tsx cp-run-T1-r2/shopfront/web/src/features/auth/RegisterForm.tsx
+--- cp-pilot-meta/pristine/shopfront/web/src/features/auth/RegisterForm.tsx	2026-10-30 11:49:12
++++ cp-run-T1-r2/shopfront/web/src/features/auth/RegisterForm.tsx	2026-10-30 11:58:02
+@@ -2,7 +2,7 @@
+ import { t } from '../../i18n'
+ import { passwordStrength } from './passwordStrength'
+ 
+-const MIN_PASSWORD_LENGTH = 8
++const MIN_PASSWORD_LENGTH = 12
+ 
+ export function RegisterForm({ onSubmit }: { onSubmit: (data: { email: string; password: string }) => void }) {
+   const [email, setEmail] = useState('')
+@@ -26,7 +26,7 @@
+         value={password}
+         minLength={MIN_PASSWORD_LENGTH}
+         onChange={e => setPassword(e.target.value)}
+-        placeholder={t('auth.passwordHint')}
++        placeholder={t('auth.registerPasswordHint')}
+       />
+       <meter min={0} max={3} value={passwordStrength(password)} />
+       {error && <p className="form-error">{error}</p>}
+diff -ruN cp-pilot-meta/pristine/shopfront/web/src/features/auth/__tests__/RegisterForm.test.tsx cp-run-T1-r2/shopfront/web/src/features/auth/__tests__/RegisterForm.test.tsx
+--- cp-pilot-meta/pristine/shopfront/web/src/features/auth/__tests__/RegisterForm.test.tsx	2026-10-30 11:49:31
++++ cp-run-T1-r2/shopfront/web/src/features/auth/__tests__/RegisterForm.test.tsx	2026-10-30 11:58:17
+@@ -6,18 +6,18 @@
+   const onSubmit = vi.fn()
+   render(<RegisterForm onSubmit={onSubmit} />)
+   fireEvent.change(screen.getByPlaceholderText('邮箱'), { target: { value: 'a@b.com' } })
+-  fireEvent.change(screen.getByPlaceholderText('密码（至少 8 位）'), { target: { value: password } })
++  fireEvent.change(screen.getByPlaceholderText('密码（至少 12 位）'), { target: { value: password } })
+   fireEvent.click(screen.getByText('注册'))
+   return onSubmit
+ }
+ 
+ describe('RegisterForm', () => {
+-  it('rejects a 7-character password', () => {
+-    expect(fill('abc1234')).not.toHaveBeenCalled()
+-    expect(screen.getByText('密码长度不能少于 8 位')).toBeTruthy()
++  it('rejects an 11-character password', () => {
++    expect(fill('abcdefg1234')).not.toHaveBeenCalled()
++    expect(screen.getByText('密码长度不能少于 12 位')).toBeTruthy()
+   })
+ 
+-  it('accepts an 8-character password', () => {
+-    expect(fill('abcd1234')).toHaveBeenCalled()
++  it('accepts a 12-character password', () => {
++    expect(fill('abcdefgh1234')).toHaveBeenCalled()
+   })
+ })
+diff -ruN cp-pilot-meta/pristine/shopfront/web/src/i18n/en.json cp-run-T1-r2/shopfront/web/src/i18n/en.json
+--- cp-pilot-meta/pristine/shopfront/web/src/i18n/en.json	2026-10-30 11:49:55
++++ cp-run-T1-r2/shopfront/web/src/i18n/en.json	2026-10-30 11:58:14
+@@ -1,7 +1,8 @@
+ {
+   "auth.email": "Email",
+   "auth.passwordHint": "Password (at least 8 characters)",
+-  "auth.passwordTooShort": "Password must be at least 8 characters",
++  "auth.registerPasswordHint": "Password (at least 12 characters)",
++  "auth.passwordTooShort": "Password must be at least 12 characters",
+   "auth.confirmPassword": "Confirm password",
+   "auth.register": "Sign up",
+   "auth.resetPassword": "Reset password",
+diff -ruN cp-pilot-meta/pristine/shopfront/web/src/i18n/zh.json cp-run-T1-r2/shopfront/web/src/i18n/zh.json
+--- cp-pilot-meta/pristine/shopfront/web/src/i18n/zh.json	2026-10-30 11:49:48
++++ cp-run-T1-r2/shopfront/web/src/i18n/zh.json	2026-10-30 11:58:08
+@@ -1,7 +1,8 @@
+ {
+   "auth.email": "邮箱",
+   "auth.passwordHint": "密码（至少 8 位）",
+-  "auth.passwordTooShort": "密码长度不能少于 8 位",
++  "auth.registerPasswordHint": "密码（至少 12 位）",
++  "auth.passwordTooShort": "密码长度不能少于 12 位",
+   "auth.confirmPassword": "确认密码",
+   "auth.register": "注册",
+   "auth.resetPassword": "重置密码",

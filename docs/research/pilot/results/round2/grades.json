@@ -1,0 +1,751 @@
+[
+  {
+    "run": "T1-c1",
+    "rows": [
+      {
+        "id": "register-form",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/features/auth/RegisterForm.tsx"
+        ]
+      },
+      {
+        "id": "i18n-zh",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/i18n/zh.json"
+        ]
+      },
+      {
+        "id": "i18n-en",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/i18n/en.json"
+        ]
+      },
+      {
+        "id": "register-test",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/features/auth/__tests__/RegisterForm.test.tsx"
+        ]
+      },
+      {
+        "id": "reset-form",
+        "tier": "coupled",
+        "status": "mentioned",
+        "evidence": []
+      },
+      {
+        "id": "server-validator",
+        "tier": "coupled",
+        "status": "mentioned",
+        "evidence": []
+      },
+      {
+        "id": "api-doc",
+        "tier": "coupled",
+        "status": "mentioned",
+        "evidence": []
+      },
+      {
+        "id": "strength-meter",
+        "tier": "review",
+        "status": "mentioned",
+        "evidence": []
+      }
+    ],
+    "extra_changed": [],
+    "deleted": [],
+    "summary": {
+      "direct": {
+        "edited": 4,
+        "mentioned": 0,
+        "missed": 0
+      },
+      "coupled": {
+        "edited": 0,
+        "mentioned": 3,
+        "missed": 0
+      },
+      "review": {
+        "edited": 0,
+        "mentioned": 1,
+        "missed": 0
+      }
+    }
+  },
+  {
+    "run": "T1-c2",
+    "rows": [
+      {
+        "id": "register-form",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/features/auth/RegisterForm.tsx"
+        ]
+      },
+      {
+        "id": "i18n-zh",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/i18n/zh.json"
+        ]
+      },
+      {
+        "id": "i18n-en",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/i18n/en.json"
+        ]
+      },
+      {
+        "id": "register-test",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/features/auth/__tests__/RegisterForm.test.tsx"
+        ]
+      },
+      {
+        "id": "reset-form",
+        "tier": "coupled",
+        "status": "mentioned",
+        "evidence": []
+      },
+      {
+        "id": "server-validator",
+        "tier": "coupled",
+        "status": "edited",
+        "evidence": [
+          "server/src/validators/user.ts"
+        ]
+      },
+      {
+        "id": "api-doc",
+        "tier": "coupled",
+        "status": "edited",
+        "evidence": [
+          "docs/api.md"
+        ]
+      },
+      {
+        "id": "strength-meter",
+        "tier": "review",
+        "status": "mentioned",
+        "evidence": []
+      }
+    ],
+    "extra_changed": [],
+    "deleted": [],
+    "summary": {
+      "direct": {
+        "edited": 4,
+        "mentioned": 0,
+        "missed": 0
+      },
+      "coupled": {
+        "edited": 2,
+        "mentioned": 1,
+        "missed": 0
+      },
+      "review": {
+        "edited": 0,
+        "mentioned": 1,
+        "missed": 0
+      }
+    }
+  },
+  {
+    "run": "T1-c3",
+    "rows": [
+      {
+        "id": "register-form",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/features/auth/RegisterForm.tsx"
+        ]
+      },
+      {
+        "id": "i18n-zh",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/i18n/zh.json"
+        ]
+      },
+      {
+        "id": "i18n-en",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/i18n/en.json"
+        ]
+      },
+      {
+        "id": "register-test",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/features/auth/__tests__/RegisterForm.test.tsx"
+        ]
+      },
+      {
+        "id": "reset-form",
+        "tier": "coupled",
+        "status": "mentioned",
+        "evidence": []
+      },
+      {
+        "id": "server-validator",
+        "tier": "coupled",
+        "status": "edited",
+        "evidence": [
+          "server/src/validators/user.ts"
+        ]
+      },
+      {
+        "id": "api-doc",
+        "tier": "coupled",
+        "status": "edited",
+        "evidence": [
+          "docs/api.md"
+        ]
+      },
+      {
+        "id": "strength-meter",
+        "tier": "review",
+        "status": "mentioned",
+        "evidence": []
+      }
+    ],
+    "extra_changed": [],
+    "deleted": [],
+    "summary": {
+      "direct": {
+        "edited": 4,
+        "mentioned": 0,
+        "missed": 0
+      },
+      "coupled": {
+        "edited": 2,
+        "mentioned": 1,
+        "missed": 0
+      },
+      "review": {
+        "edited": 0,
+        "mentioned": 1,
+        "missed": 0
+      }
+    }
+  },
+  {
+    "run": "T2-c1",
+    "rows": [
+      {
+        "id": "modal",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/components/Modal.tsx"
+        ]
+      },
+      {
+        "id": "confirm-dialog",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/components/ConfirmDialog.tsx"
+        ]
+      },
+      {
+        "id": "bottom-sheet",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/components/BottomSheet.tsx"
+        ]
+      },
+      {
+        "id": "image-lightbox",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/components/ImageLightbox.tsx"
+        ]
+      },
+      {
+        "id": "address-picker-inline",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/features/checkout/CheckoutPage.tsx"
+        ]
+      },
+      {
+        "id": "coupon-layer",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/features/checkout/couponLayer.ts"
+        ]
+      },
+      {
+        "id": "drawer",
+        "tier": "review",
+        "status": "edited",
+        "evidence": [
+          "web/src/components/Drawer.tsx"
+        ]
+      },
+      {
+        "id": "toast",
+        "tier": "review",
+        "status": "mentioned",
+        "evidence": []
+      },
+      {
+        "id": "tooltip",
+        "tier": "exclude",
+        "status": "mentioned",
+        "evidence": []
+      }
+    ],
+    "extra_changed": [
+      "web/src/styles/popup-fade-in.css"
+    ],
+    "deleted": [],
+    "summary": {
+      "direct": {
+        "edited": 6,
+        "mentioned": 0,
+        "missed": 0
+      },
+      "review": {
+        "edited": 1,
+        "mentioned": 1,
+        "missed": 0
+      },
+      "exclude": {
+        "edited": 0,
+        "mentioned": 1,
+        "missed": 0
+      }
+    }
+  },
+  {
+    "run": "T2-c2",
+    "rows": [
+      {
+        "id": "modal",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/components/Modal.tsx"
+        ]
+      },
+      {
+        "id": "confirm-dialog",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/components/ConfirmDialog.tsx"
+        ]
+      },
+      {
+        "id": "bottom-sheet",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/components/BottomSheet.tsx"
+        ]
+      },
+      {
+        "id": "image-lightbox",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/components/ImageLightbox.tsx"
+        ]
+      },
+      {
+        "id": "address-picker-inline",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/features/checkout/CheckoutPage.tsx"
+        ]
+      },
+      {
+        "id": "coupon-layer",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/features/checkout/couponLayer.ts"
+        ]
+      },
+      {
+        "id": "drawer",
+        "tier": "review",
+        "status": "edited",
+        "evidence": [
+          "web/src/components/Drawer.tsx"
+        ]
+      },
+      {
+        "id": "toast",
+        "tier": "review",
+        "status": "mentioned",
+        "evidence": []
+      },
+      {
+        "id": "tooltip",
+        "tier": "exclude",
+        "status": "mentioned",
+        "evidence": []
+      }
+    ],
+    "extra_changed": [
+      "web/src/styles/fade-in.css"
+    ],
+    "deleted": [],
+    "summary": {
+      "direct": {
+        "edited": 6,
+        "mentioned": 0,
+        "missed": 0
+      },
+      "review": {
+        "edited": 1,
+        "mentioned": 1,
+        "missed": 0
+      },
+      "exclude": {
+        "edited": 0,
+        "mentioned": 1,
+        "missed": 0
+      }
+    }
+  },
+  {
+    "run": "T2-c3",
+    "rows": [
+      {
+        "id": "modal",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/components/Modal.tsx"
+        ]
+      },
+      {
+        "id": "confirm-dialog",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/components/ConfirmDialog.tsx"
+        ]
+      },
+      {
+        "id": "bottom-sheet",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/components/BottomSheet.tsx"
+        ]
+      },
+      {
+        "id": "image-lightbox",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/components/ImageLightbox.tsx"
+        ]
+      },
+      {
+        "id": "address-picker-inline",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/features/checkout/CheckoutPage.tsx"
+        ]
+      },
+      {
+        "id": "coupon-layer",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/features/checkout/couponLayer.ts"
+        ]
+      },
+      {
+        "id": "drawer",
+        "tier": "review",
+        "status": "edited",
+        "evidence": [
+          "web/src/components/Drawer.tsx"
+        ]
+      },
+      {
+        "id": "toast",
+        "tier": "review",
+        "status": "mentioned",
+        "evidence": []
+      },
+      {
+        "id": "tooltip",
+        "tier": "exclude",
+        "status": "mentioned",
+        "evidence": []
+      }
+    ],
+    "extra_changed": [
+      "web/src/styles/fade-in.css"
+    ],
+    "deleted": [],
+    "summary": {
+      "direct": {
+        "edited": 6,
+        "mentioned": 0,
+        "missed": 0
+      },
+      "review": {
+        "edited": 1,
+        "mentioned": 1,
+        "missed": 0
+      },
+      "exclude": {
+        "edited": 0,
+        "mentioned": 1,
+        "missed": 0
+      }
+    }
+  },
+  {
+    "run": "T3-c1",
+    "rows": [
+      {
+        "id": "web-date-util",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/utils/date.ts"
+        ]
+      },
+      {
+        "id": "web-formatTime",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/utils/format.ts"
+        ]
+      },
+      {
+        "id": "web-orderlist-fmt",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/features/orders/OrderList.tsx"
+        ]
+      },
+      {
+        "id": "web-profile-inline",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/features/profile/ProfilePage.tsx"
+        ]
+      },
+      {
+        "id": "server-fmtDate",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "server/src/utils/time.ts"
+        ]
+      },
+      {
+        "id": "server-report-toDay",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "server/src/services/report.ts"
+        ]
+      },
+      {
+        "id": "countdown",
+        "tier": "exclude",
+        "status": "missed",
+        "evidence": []
+      }
+    ],
+    "extra_changed": [],
+    "deleted": [],
+    "summary": {
+      "direct": {
+        "edited": 6,
+        "mentioned": 0,
+        "missed": 0
+      },
+      "exclude": {
+        "edited": 0,
+        "mentioned": 0,
+        "missed": 1
+      }
+    }
+  },
+  {
+    "run": "T3-c2",
+    "rows": [
+      {
+        "id": "web-date-util",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/utils/date.ts"
+        ]
+      },
+      {
+        "id": "web-formatTime",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/utils/format.ts"
+        ]
+      },
+      {
+        "id": "web-orderlist-fmt",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/features/orders/OrderList.tsx"
+        ]
+      },
+      {
+        "id": "web-profile-inline",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/features/profile/ProfilePage.tsx"
+        ]
+      },
+      {
+        "id": "server-fmtDate",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "server/src/utils/time.ts"
+        ]
+      },
+      {
+        "id": "server-report-toDay",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "server/src/services/report.ts"
+        ]
+      },
+      {
+        "id": "countdown",
+        "tier": "exclude",
+        "status": "missed",
+        "evidence": []
+      }
+    ],
+    "extra_changed": [],
+    "deleted": [],
+    "summary": {
+      "direct": {
+        "edited": 6,
+        "mentioned": 0,
+        "missed": 0
+      },
+      "exclude": {
+        "edited": 0,
+        "mentioned": 0,
+        "missed": 1
+      }
+    }
+  },
+  {
+    "run": "T3-c3",
+    "rows": [
+      {
+        "id": "web-date-util",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/utils/date.ts"
+        ]
+      },
+      {
+        "id": "web-formatTime",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/utils/format.ts"
+        ]
+      },
+      {
+        "id": "web-orderlist-fmt",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/features/orders/OrderList.tsx"
+        ]
+      },
+      {
+        "id": "web-profile-inline",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "web/src/features/profile/ProfilePage.tsx"
+        ]
+      },
+      {
+        "id": "server-fmtDate",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "server/src/utils/time.ts"
+        ]
+      },
+      {
+        "id": "server-report-toDay",
+        "tier": "direct",
+        "status": "edited",
+        "evidence": [
+          "server/src/services/report.ts"
+        ]
+      },
+      {
+        "id": "countdown",
+        "tier": "exclude",
+        "status": "missed",
+        "evidence": []
+      }
+    ],
+    "extra_changed": [],
+    "deleted": [],
+    "summary": {
+      "direct": {
+        "edited": 6,
+        "mentioned": 0,
+        "missed": 0
+      },
+      "exclude": {
+        "edited": 0,
+        "mentioned": 0,
+        "missed": 1
+      }
+    }
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "name": "shopfront",
+  "private": true,
+  "workspaces": ["web", "server"],
+  "scripts": {
+    "test": "npm run test --workspaces"
+  }
+}

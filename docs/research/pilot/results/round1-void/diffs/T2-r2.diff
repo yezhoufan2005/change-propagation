@@ -1,0 +1,153 @@
+diff -ruN cp-pilot-meta/pristine/shopfront/web/src/components/BottomSheet.tsx cp-run-T2-r2/shopfront/web/src/components/BottomSheet.tsx
+--- cp-pilot-meta/pristine/shopfront/web/src/components/BottomSheet.tsx	2026-10-30 11:47:32
++++ cp-run-T2-r2/shopfront/web/src/components/BottomSheet.tsx	2026-10-30 11:58:48
+@@ -1,6 +1,7 @@
+ import { ReactNode } from 'react'
+ import { createPortal } from 'react-dom'
+ import styles from './BottomSheet.module.css'
++import '../styles/animations.css'
+ 
+ interface BottomSheetProps {
+   open: boolean
+@@ -13,8 +14,8 @@
+   if (!open) return null
+   return createPortal(
+     <>
+-      <div className={styles.backdrop} onClick={onDismiss} />
+-      <section className={styles.sheet}>{children}</section>
++      <div className={`${styles.backdrop} fade-in`} onClick={onDismiss} />
++      <section className={`${styles.sheet} fade-in`}>{children}</section>
+     </>,
+     document.body,
+   )
+diff -ruN cp-pilot-meta/pristine/shopfront/web/src/components/ConfirmDialog.tsx cp-run-T2-r2/shopfront/web/src/components/ConfirmDialog.tsx
+--- cp-pilot-meta/pristine/shopfront/web/src/components/ConfirmDialog.tsx	2026-10-30 11:47:26
++++ cp-run-T2-r2/shopfront/web/src/components/ConfirmDialog.tsx	2026-10-30 11:58:29
+@@ -1,5 +1,6 @@
+ import { createPortal } from 'react-dom'
+ import { Button } from './Button'
++import '../styles/animations.css'
+ 
+ interface ConfirmDialogProps {
+   visible: boolean
+@@ -13,7 +14,7 @@
+ export function ConfirmDialog({ visible, message, confirmText = '确定', onConfirm, onCancel }: ConfirmDialogProps) {
+   if (!visible) return null
+   return createPortal(
+-    <div style={{ position: 'fixed', inset: 0, zIndex: 1100, display: 'grid', placeItems: 'center', background: 'rgba(0, 0, 0, 0.4)' }}>
++    <div className="fade-in" style={{ position: 'fixed', inset: 0, zIndex: 1100, display: 'grid', placeItems: 'center', background: 'rgba(0, 0, 0, 0.4)' }}>
+       <div role="alertdialog" style={{ width: 320, padding: 20, borderRadius: 6, background: '#fff' }}>
+         <p>{message}</p>
+         <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
+diff -ruN cp-pilot-meta/pristine/shopfront/web/src/components/Drawer.tsx cp-run-T2-r2/shopfront/web/src/components/Drawer.tsx
+--- cp-pilot-meta/pristine/shopfront/web/src/components/Drawer.tsx	2026-10-30 11:47:54
++++ cp-run-T2-r2/shopfront/web/src/components/Drawer.tsx	2026-10-30 11:58:36
+@@ -1,5 +1,6 @@
+ import { ReactNode } from 'react'
+ import '../styles/drawer.css'
++import '../styles/animations.css'
+ 
+ interface DrawerProps {
+   open: boolean
+@@ -11,8 +12,8 @@
+ export function Drawer({ open, side = 'right', onClose, children }: DrawerProps) {
+   return (
+     <div className={`drawer-root${open ? ' is-open' : ''}`} aria-hidden={!open}>
+-      <div className="drawer-scrim" onClick={onClose} />
+-      <aside className={`drawer drawer-${side}`}>{children}</aside>
++      <div className="drawer-scrim fade-in" onClick={onClose} />
++      <aside className={`drawer drawer-${side} fade-in`}>{children}</aside>
+     </div>
+   )
+ }
+diff -ruN cp-pilot-meta/pristine/shopfront/web/src/components/ImageLightbox.tsx cp-run-T2-r2/shopfront/web/src/components/ImageLightbox.tsx
+--- cp-pilot-meta/pristine/shopfront/web/src/components/ImageLightbox.tsx	2026-10-30 11:47:43
++++ cp-run-T2-r2/shopfront/web/src/components/ImageLightbox.tsx	2026-10-30 11:58:59
+@@ -1,6 +1,7 @@
+ import { useState } from 'react'
+ import { createPortal } from 'react-dom'
+ import '../styles/lightbox.css'
++import '../styles/animations.css'
+ 
+ interface ImageLightboxProps {
+   images: string[]
+@@ -13,7 +14,7 @@
+   const next = () => setIndex(i => (i + 1) % images.length)
+ 
+   return createPortal(
+-    <div className="lightbox-overlay" onClick={onClose}>
++    <div className="lightbox-overlay fade-in" onClick={onClose}>
+       <img
+         className="lightbox-img"
+         src={images[index]}
+diff -ruN cp-pilot-meta/pristine/shopfront/web/src/components/Modal.tsx cp-run-T2-r2/shopfront/web/src/components/Modal.tsx
+--- cp-pilot-meta/pristine/shopfront/web/src/components/Modal.tsx	2026-10-30 11:47:13
++++ cp-run-T2-r2/shopfront/web/src/components/Modal.tsx	2026-10-30 11:58:16
+@@ -1,6 +1,7 @@
+ import { ReactNode, useEffect } from 'react'
+ import { createPortal } from 'react-dom'
+ import './modal.css'
++import '../styles/animations.css'
+ 
+ interface ModalProps {
+   open: boolean
+@@ -21,7 +22,7 @@
+ 
+   if (!open) return null
+   return createPortal(
+-    <div className="modal-mask" onClick={onClose}>
++    <div className="modal-mask fade-in" onClick={onClose}>
+       <div className="modal-panel" role="dialog" aria-modal="true" onClick={e => e.stopPropagation()}>
+         {title && <h3 className="modal-title">{title}</h3>}
+         {children}
+diff -ruN cp-pilot-meta/pristine/shopfront/web/src/features/checkout/CheckoutPage.tsx cp-run-T2-r2/shopfront/web/src/features/checkout/CheckoutPage.tsx
+--- cp-pilot-meta/pristine/shopfront/web/src/features/checkout/CheckoutPage.tsx	2026-10-30 11:48:45
++++ cp-run-T2-r2/shopfront/web/src/features/checkout/CheckoutPage.tsx	2026-10-30 11:59:22
+@@ -4,6 +4,7 @@
+ import { ConfirmDialog } from '../../components/ConfirmDialog'
+ import { formatPrice } from '../../utils/format'
+ import { showCouponLayer } from './couponLayer'
++import '../../styles/animations.css'
+ 
+ interface Address {
+   id: string
+@@ -35,7 +36,7 @@
+       {pickerOpen &&
+         createPortal(
+           <div
+-            className="address-picker-mask"
++            className="address-picker-mask fade-in"
+             style={{ position: 'fixed', inset: 0, zIndex: 950, background: 'rgba(0, 0, 0, 0.4)' }}
+             onClick={() => setPickerOpen(false)}
+           >
+diff -ruN cp-pilot-meta/pristine/shopfront/web/src/features/checkout/couponLayer.ts cp-run-T2-r2/shopfront/web/src/features/checkout/couponLayer.ts
+--- cp-pilot-meta/pristine/shopfront/web/src/features/checkout/couponLayer.ts	2026-10-30 11:48:52
++++ cp-run-T2-r2/shopfront/web/src/features/checkout/couponLayer.ts	2026-10-30 11:59:01
+@@ -1,7 +1,9 @@
++import '../../styles/animations.css'
++
+ // Imperative layer carried over from the legacy (pre-React) checkout page.
+ export function showCouponLayer(coupons: { code: string; title: string }[], onPick?: (code: string) => void) {
+   const mask = document.createElement('div')
+-  mask.className = 'coupon-layer-mask'
++  mask.className = 'coupon-layer-mask fade-in'
+   mask.style.cssText = 'position:fixed;inset:0;z-index:1300;display:flex;align-items:flex-end;background:rgba(0,0,0,.5)'
+ 
+   const panel = document.createElement('div')
+diff -ruN cp-pilot-meta/pristine/shopfront/web/src/styles/animations.css cp-run-T2-r2/shopfront/web/src/styles/animations.css
+--- cp-pilot-meta/pristine/shopfront/web/src/styles/animations.css	1970-01-01 08:00:00
++++ cp-run-T2-r2/shopfront/web/src/styles/animations.css	2026-10-30 11:58:09
+@@ -0,0 +1,13 @@
++/* Open animation shared by all popups. */
++@keyframes fade-in {
++  from {
++    opacity: 0;
++  }
++  to {
++    opacity: 1;
++  }
++}
++
++.fade-in {
++  animation: fade-in 200ms ease-out;
++}

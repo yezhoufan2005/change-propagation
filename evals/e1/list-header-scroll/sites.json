@@ -1,0 +1,155 @@
+{
+ "sites": [
+  {
+   "id": "R4",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/views/device/grouping-details/modules/group-member-list.vue",
+     "gone": "^(?=[\\s\\S]*?(?:<(?:n-scrollbar|NScrollbar)\\b[^>]*>(?:(?!<\\/(?:n-scrollbar|NScrollbar)\\s*>)[\\s\\S])*?\\bclass=\"[^\"]*\\bmember-list-head\\b|<div\\b[^>]*\\bstyle=\"[^\"]*overflow(?:-y)?\\s*:\\s*(?:auto|scroll)[^\"]*\"[^>]*>\\s*<div\\b[^>]*\\bclass=\"[^\"]*\\bmember-list-head\\b))(?=[\\s\\S]*?(?:<(?:n-scrollbar|NScrollbar)\\b[^>]*(?:height\\s*:\\s*\\d|\\bh-\\d|\\bmax-h-\\d)[^>]*>(?:(?!<\\/(?:n-scrollbar|NScrollbar)\\s*>)[\\s\\S])*?\\bclass=\"[^\"]*\\bmember-list-head\\b|<div\\b[^>]*\\bstyle=\"[^\"]*overflow(?:-y)?\\s*:\\s*(?:auto|scroll)[^\"]*\"[^>]*>\\s*<div\\b[^>]*\\bclass=\"[^\"]*\\bmember-list-head\\b))"
+    }
+   ]
+  },
+  {
+   "id": "R7",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/views/system-management-user/system-log/components/login-trace-list.vue",
+     "gone": "^(?=[\\s\\S]*?<div\\b[^>]*\\bstyle=\"[^\"]*\\boverflow(?:-y)?\\s*:\\s*(?:auto|scroll)\\b[^\"]*\"[^>]*>\\s*<div\\b[^>]*\\bstyle=\"[^\"]*\\bbackground(?:-color)?\\s*:\\s*#f0f0f0\\b)(?=[\\s\\S]*?\\bstyle=\"[^\"]*\\bheight\\s*:\\s*240px\\b[^\"]*\\boverflow(?:-y)?\\s*:\\s*(?:auto|scroll)\\b)"
+    }
+   ]
+  },
+  {
+   "id": "R6",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/views/apply/plugin/components/plugin-instance-panel.vue",
+     "gone": "^(?=[\\s\\S]*?<[\\w-]+\\b[^>]*\\bclass=\"[^\"]*\\binstance-panel__content\\b[^\"]*\"[^>]*>\\s*(?:<!--[\\s\\S]*?-->\\s*)*<[\\w-]+\\b[^>]*\\bclass=\"[^\"]*\\binstance-panel__title-bar\\b)(?=[\\s\\S]*?(?:&|\\.instance-panel)__content\\s*\\{[^{}]*?overflow(?:-y)?\\s*:\\s*(?:auto|scroll|overlay)\\b)"
+    }
+   ]
+  },
+  {
+   "id": "R5",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/views/management/role/modules/role-user-list.vue",
+     "gone": "^(?=[\\s\\S]*?<div\\b[^>]*\\bclass=\"[^\"]*\\brole-user-scroll\\b[^\"]*\"[^>]*>\\s*(?:<!--[\\s\\S]*?-->\\s*)*<(?:RoleUserListHeader|role-user-list-header)\\b)(?=[\\s\\S]*?\\.role-user-scroll\\s*\\{[^}]*?\\boverflow(?:-y)?\\s*:\\s*(?:[a-z-]+\\s+)?(?:auto|scroll)\\b)"
+    }
+   ]
+  },
+  {
+   "id": "R3",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/views/alarm/notification-record/components/delivery-attempt-list.vue",
+     "gone": "^(?=[\\s\\S]*?<div\\b[^>]*?\\bclass=\"[^\"]*\\boverflow(?:-y)?-(?:auto|scroll)\\b[^\"]*\"[^>]*>\\s*<div\\b[^>]*?\\bclass=\"[^\"]*\\bbg-gray-100\\b)(?=[\\s\\S]*?<div\\b[^>]*?\\bclass=\"(?![^\"]*\\boverflow(?:-y)?-hidden\\b)[^\"]*\\boverflow(?:-y)?-(?:auto|scroll)\\b[^\"]*\"[^>]*>\\s*<div\\b[^>]*?\\bclass=\"[^\"]*\\bbg-gray-100\\b)"
+    }
+   ]
+  },
+  {
+   "id": "R1",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/views/automation/scene-manage/modules/scene-deploy-list.vue",
+     "gone": "^(?=[\\s\\S]*?class=\"[^\"]*\\bdeploy-list__body\\b[^\"]*\"[^>]*>\\s*(?:<!--[\\s\\S]*?-->\\s*)*<[a-zA-Z][\\w-]*\\b[^>]*class=\"[^\"]*\\bdeploy-list__header\\b)(?=[\\s\\S]*?(?:\\.deploy-list|&)__body\\s*(?:,[^{}]*)?\\{[^}]*overflow(?:-y)?\\s*:\\s*(?:[a-z-]+\\s+)?(?:auto|scroll|overlay)\\b)"
+    }
+   ]
+  },
+  {
+   "id": "R2",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/views/device/details/modules/command-dispatch-list.vue",
+     "gone": "^(?=[\\s\\S]*?class=\"[^\"]*\\bdispatch-panel__scroll\\b[^\"]*\"[^>]*>\\s*(?:<!--[\\s\\S]*?-->\\s*)*<[a-zA-Z][\\w-]*\\b[^>]*class=\"[^\"]*\\bdispatch-panel__head\\b)(?=[\\s\\S]*?(?:\\.dispatch-panel|&)__scroll\\s*(?:,[^{}]*)?\\{[^}]*overflow(?:-y)?\\s*:\\s*(?:[a-z-]+\\s+)?(?:auto|scroll|overlay)\\b)"
+    }
+   ]
+  },
+  {
+   "id": "D1",
+   "tier": "exclude",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/views/device/manage/modules/device-tag-list.vue",
+     "keep": "^(?=[\\s\\S]*?<div class=\"tag-list__header\"[^>]*>(?:(?!<div)[\\s\\S])*?</div>\\s*<div class=\"tag-list__body\"[^>]*>\\s*<div v-for=\"[^\"]*\" [^>]*class=\"tag-list__row\")(?=[\\s\\S]*?\\.tag-list__header\\s*\\{[^}]*display:\\s*grid;[^}]*background:\\s*#f5f6f7)(?=[\\s\\S]*?\\.tag-list__body\\s*\\{\\s*max-height:\\s*300px;\\s*overflow-y:\\s*auto;\\s*\\})"
+    }
+   ]
+  },
+  {
+   "id": "D2",
+   "tier": "exclude",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/views/alarm/notification-group/components/recent-delivery-table.vue",
+     "keep": "^(?![\\s\\S]*recent-delivery-table__head)(?![\\s\\S]*<template #header)(?=[\\s\\S]*?<n-data-table(?=[^>]*:columns=\"columns\")(?=[^>]*:data=\"rows\")[^>]*:max-height=\"280\"[^>]*/>)"
+    }
+   ]
+  },
+  {
+   "id": "D3",
+   "tier": "exclude",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/views/device/config-detail/modules/raw-payload-viewer.vue",
+     "keep": "^(?![\\s\\S]*payload-viewer__head)(?=[\\s\\S]*?<div class=\"payload-viewer\"[^>]*>\\s*<div v-for=\"\\(line, index\\) in lines\"[^>]*class=\"payload-viewer__line\")(?=[\\s\\S]*?\\.payload-viewer\\s*\\{\\s*max-height:\\s*220px;\\s*overflow-y:\\s*auto;[^}]*background:\\s*#f5f6f7;[^}]*font-family:\\s*monospace)"
+    }
+   ]
+  },
+  {
+   "id": "D4",
+   "tier": "exclude",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/views/device/template/components/step/field-mapping-table.vue",
+     "keep": "^(?=[\\s\\S]*?<div class=\"mapping-scroll\"[^>]*>\\s*<div class=\"mapping-head\"[^>]*>(?:(?!<div)[\\s\\S])*?</div>\\s*<div v-for=\"row in rows\"[^>]*class=\"mapping-row\")(?=[\\s\\S]*?\\.mapping-scroll\\s*\\{\\s*overflow-x:\\s*auto;\\s*overflow-y:\\s*hidden;)(?=[\\s\\S]*?\\.mapping-head\\s*\\{[^}]*display:\\s*flex;[^}]*min-width:\\s*960px;[^}]*background:\\s*#f5f6f7)(?=[\\s\\S]*?\\.mapping-row\\s*\\{[^}]*min-width:\\s*960px)"
+    }
+   ]
+  },
+  {
+   "id": "N1",
+   "tier": "review",
+   "files": [],
+   "mention": [
+    "data-table-page"
+   ]
+  },
+  {
+   "id": "N2",
+   "tier": "review",
+   "files": [],
+   "mention": [
+    "device/config/index.vue",
+    "config/index.vue"
+   ]
+  },
+  {
+   "id": "N3",
+   "tier": "review",
+   "files": [],
+   "mention": [
+    "device/template/index.vue",
+    "template/index.vue"
+   ]
+  },
+  {
+   "id": "N4",
+   "tier": "review",
+   "files": [],
+   "mention": [
+    "device/grouping/index.vue",
+    "grouping/index.vue"
+   ]
+  }
+ ],
+ "natural": [
+  "thingspanel-frontend-community/src/components/data-table-page/index.vue",
+  "thingspanel-frontend-community/src/views/device/config/index.vue",
+  "thingspanel-frontend-community/src/views/device/template/index.vue",
+  "thingspanel-frontend-community/src/views/device/grouping/index.vue"
+ ]
+}

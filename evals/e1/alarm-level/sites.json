@@ -1,0 +1,27 @@
+{
+ "sites": [
+  {
+   "id": "appframe",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/components/thingsvis/ThingsVisAppFrame.vue",
+     "present": "['\"]h['\"]"
+    }
+   ]
+  },
+  {
+   "id": "widget",
+   "tier": "coupled",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/components/thingsvis/ThingsVisWidget.vue",
+     "present": "['\"]h['\"]"
+    }
+   ],
+   "mention": [
+    "ThingsVisWidget"
+   ]
+  }
+ ]
+}

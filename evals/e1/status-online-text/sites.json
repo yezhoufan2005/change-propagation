@@ -1,0 +1,53 @@
+{
+ "sites": [
+  {
+   "id": "appframe",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/components/thingsvis/ThingsVisAppFrame.vue",
+     "gone": "is_online === 1 \\? '在线' : '离线'"
+    }
+   ]
+  },
+  {
+   "id": "viewer",
+   "tier": "coupled",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/components/thingsvis/ThingsVisViewer.vue",
+     "gone": "is_online === 1 \\? '在线' : '离线'"
+    }
+   ],
+   "mention": [
+    "ThingsVisViewer"
+   ]
+  },
+  {
+   "id": "realtime-push",
+   "tier": "coupled",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/hooks/thingsvis/useRealtimePush.ts",
+     "gone": "is_online === 1 \\? '在线' : '离线'"
+    }
+   ],
+   "mention": [
+    "useRealtimePush"
+   ]
+  },
+  {
+   "id": "device-details-app",
+   "tier": "coupled",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/views/device-details-app/index.vue",
+     "gone": "is_online === 1 \\? '在线' : '离线'"
+    }
+   ],
+   "mention": [
+    "device-details-app"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,88 @@
+{
+ "sites": [
+  {
+   "id": "web-date-util",
+   "tier": "review",
+   "files": [],
+   "mention": [
+    "utils/date",
+    "date.ts"
+   ]
+  },
+  {
+   "id": "web-formatTime",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "web/src/utils/format.ts",
+     "gone": "pad\\(d\\.getMonth\\(\\)\\)"
+    }
+   ]
+  },
+  {
+   "id": "web-orderlist-fmt",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "web/src/features/orders/OrderList.tsx",
+     "gone": "toLocaleDateString"
+    }
+   ]
+  },
+  {
+   "id": "web-profile-inline",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "web/src/features/profile/ProfilePage.tsx",
+     "gone": "joined\\.getFullYear\\(\\)"
+    }
+   ]
+  },
+  {
+   "id": "server-fmtDate",
+   "tier": "coupled",
+   "files": [
+    {
+     "path": "server/src/utils/time.ts",
+     "gone": "getFullYear"
+    }
+   ],
+   "mention": [
+    "utils/time",
+    "fmtDate"
+   ]
+  },
+  {
+   "id": "server-report-toDay",
+   "tier": "coupled",
+   "files": [
+    {
+     "path": "server/src/services/report.ts",
+     "gone": "toISOString\\(\\)\\.slice"
+    }
+   ],
+   "mention": [
+    "report.ts",
+    "toDay"
+   ]
+  },
+  {
+   "id": "countdown",
+   "tier": "exclude",
+   "files": [
+    {
+     "path": "web/src/features/orders/useCountdown.ts",
+     "keep": "Math\\.round\\(\\(deadline - Date\\.now\\(\\)\\) / 1000\\)"
+    }
+   ]
+  }
+ ],
+ "extra": [
+  {
+   "name": "say-drift",
+   "weight": 0.001,
+   "body": "PASS if the final message tells the user that the existing duplicate implementations were not all equivalent, i.e. at least one of these behaviour differences between copies is named: the month in formatTime (utils/format.ts) lacks the +1, formatTime/ProfilePage do not zero-pad, or the server report's toDay takes the UTC date via toISOString while the others use local time.\nFAIL if the message only says the duplicates were replaced and never mentions that the copies behaved differently."
+  }
+ ]
+}

@@ -1,0 +1,267 @@
+{
+  "_notes": {
+    "model": "claude-opus-5-5 (CLAUDE_CODE_SUBAGENT_MODEL), effort max, read from the run transcripts",
+    "tool_calls": "tool calls in the transcript, excluding the final handback",
+    "subagent_tokens / duration_min": "from the harness completion notice",
+    "files_read": "fixture files with at least half of their unique lines present in the run tool results (estimate)"
+  },
+  "T1-c1": {
+    "tool_calls": 14,
+    "by_tool": {
+      "Bash": 5,
+      "Read": 4,
+      "Edit": 5
+    },
+    "output_tokens": 8145,
+    "subagent_tokens": 52935,
+    "duration_min": 4.2,
+    "files_read": 16,
+    "files_total": 40,
+    "not_read": [
+      "server/src/routes/orders.ts",
+      "server/src/services/report.ts",
+      "server/src/utils/time.ts",
+      "web/src/components/BottomSheet.module.css",
+      "web/src/components/BottomSheet.tsx",
+      "web/src/components/Button.tsx",
+      "web/src/components/ConfirmDialog.tsx",
+      "web/src/components/Drawer.tsx",
+      "web/src/components/ImageLightbox.tsx",
+      "web/src/components/Modal.tsx",
+      "web/src/components/ProductCard.tsx",
+      "web/src/components/Toast.tsx",
+      "web/src/components/Tooltip.tsx",
+      "web/src/components/modal.css",
+      "web/src/features/checkout/CheckoutPage.tsx",
+      "web/src/features/checkout/couponLayer.ts",
+      "web/src/features/orders/OrderList.tsx",
+      "web/src/features/orders/useCountdown.ts",
+      "web/src/features/profile/ProfilePage.tsx",
+      "web/src/styles/drawer.css",
+      "web/src/styles/lightbox.css",
+      "web/src/styles/toast.css",
+      "web/src/utils/date.ts",
+      "web/src/utils/format.ts"
+    ]
+  },
+  "T1-c2": {
+    "tool_calls": 29,
+    "by_tool": {
+      "Bash": 6,
+      "Read": 13,
+      "Edit": 10
+    },
+    "output_tokens": 9501,
+    "subagent_tokens": 59961,
+    "duration_min": 5.6,
+    "files_read": 17,
+    "files_total": 40,
+    "not_read": [
+      "server/src/routes/orders.ts",
+      "server/src/services/report.ts",
+      "server/src/utils/time.ts",
+      "web/src/components/BottomSheet.module.css",
+      "web/src/components/BottomSheet.tsx",
+      "web/src/components/Button.tsx",
+      "web/src/components/ConfirmDialog.tsx",
+      "web/src/components/Drawer.tsx",
+      "web/src/components/ImageLightbox.tsx",
+      "web/src/components/Modal.tsx",
+      "web/src/components/ProductCard.tsx",
+      "web/src/components/Toast.tsx",
+      "web/src/components/Tooltip.tsx",
+      "web/src/components/modal.css",
+      "web/src/features/checkout/CheckoutPage.tsx",
+      "web/src/features/checkout/couponLayer.ts",
+      "web/src/features/orders/OrderList.tsx",
+      "web/src/features/orders/useCountdown.ts",
+      "web/src/styles/drawer.css",
+      "web/src/styles/lightbox.css",
+      "web/src/styles/toast.css",
+      "web/src/utils/date.ts",
+      "web/src/utils/format.ts"
+    ]
+  },
+  "T1-c3": {
+    "tool_calls": 23,
+    "by_tool": {
+      "Bash": 7,
+      "Read": 9,
+      "Edit": 7
+    },
+    "output_tokens": 11042,
+    "subagent_tokens": 64746,
+    "duration_min": 6.3,
+    "files_read": 17,
+    "files_total": 40,
+    "not_read": [
+      "server/src/routes/orders.ts",
+      "server/src/services/report.ts",
+      "server/src/utils/time.ts",
+      "web/src/components/BottomSheet.module.css",
+      "web/src/components/BottomSheet.tsx",
+      "web/src/components/Button.tsx",
+      "web/src/components/ConfirmDialog.tsx",
+      "web/src/components/Drawer.tsx",
+      "web/src/components/ImageLightbox.tsx",
+      "web/src/components/Modal.tsx",
+      "web/src/components/ProductCard.tsx",
+      "web/src/components/Toast.tsx",
+      "web/src/components/Tooltip.tsx",
+      "web/src/components/modal.css",
+      "web/src/features/checkout/CheckoutPage.tsx",
+      "web/src/features/checkout/couponLayer.ts",
+      "web/src/features/orders/OrderList.tsx",
+      "web/src/features/orders/useCountdown.ts",
+      "web/src/styles/drawer.css",
+      "web/src/styles/lightbox.css",
+      "web/src/styles/toast.css",
+      "web/src/utils/date.ts",
+      "web/src/utils/format.ts"
+    ]
+  },
+  "T2-c1": {
+    "tool_calls": 49,
+    "by_tool": {
+      "Bash": 9,
+      "Write": 1,
+      "Edit": 28,
+      "Read": 7,
+      "ToolSearch": 1,
+      "mcp__playwright__browser_navigate": 2,
+      "mcp__playwright__browser_evaluate": 1
+    },
+    "output_tokens": 22636,
+    "subagent_tokens": 119799,
+    "duration_min": 13.5,
+    "files_read": 34,
+    "files_total": 40,
+    "not_read": [
+      "server/src/index.ts",
+      "server/src/routes/auth.ts",
+      "server/src/routes/orders.ts",
+      "server/src/services/report.ts",
+      "server/src/utils/time.ts",
+      "server/src/validators/user.ts"
+    ]
+  },
+  "T2-c2": {
+    "tool_calls": 50,
+    "by_tool": {
+      "Bash": 14,
+      "Write": 1,
+      "Edit": 18,
+      "Read": 7,
+      "ToolSearch": 3,
+      "mcp__playwright__browser_navigate": 2,
+      "mcp__playwright__browser_evaluate": 2,
+      "mcp__playwright__browser_console_messages": 1,
+      "TaskStop": 1,
+      "mcp__playwright__browser_close": 1
+    },
+    "output_tokens": 31400,
+    "subagent_tokens": 162518,
+    "duration_min": 19.5,
+    "files_read": 40,
+    "files_total": 40,
+    "not_read": []
+  },
+  "T2-c3": {
+    "tool_calls": 35,
+    "by_tool": {
+      "Bash": 9,
+      "Read": 7,
+      "Write": 1,
+      "Edit": 14,
+      "ToolSearch": 1,
+      "mcp__playwright__browser_navigate": 2,
+      "mcp__playwright__browser_evaluate": 1
+    },
+    "output_tokens": 21762,
+    "subagent_tokens": 115668,
+    "duration_min": 13.0,
+    "files_read": 32,
+    "files_total": 40,
+    "not_read": [
+      "server/src/index.ts",
+      "server/src/routes/auth.ts",
+      "server/src/routes/orders.ts",
+      "server/src/services/report.ts",
+      "server/src/utils/time.ts",
+      "server/src/validators/user.ts",
+      "web/src/i18n/en.json",
+      "web/src/i18n/zh.json"
+    ]
+  },
+  "T3-c1": {
+    "tool_calls": 32,
+    "by_tool": {
+      "Bash": 16,
+      "Read": 6,
+      "Edit": 10
+    },
+    "output_tokens": 15388,
+    "subagent_tokens": 83169,
+    "duration_min": 8.7,
+    "files_read": 35,
+    "files_total": 40,
+    "not_read": [
+      "web/src/components/BottomSheet.module.css",
+      "web/src/components/modal.css",
+      "web/src/styles/drawer.css",
+      "web/src/styles/lightbox.css",
+      "web/src/styles/toast.css"
+    ]
+  },
+  "T3-c2": {
+    "tool_calls": 27,
+    "by_tool": {
+      "Bash": 11,
+      "Read": 6,
+      "Edit": 10
+    },
+    "output_tokens": 15163,
+    "subagent_tokens": 81943,
+    "duration_min": 8.1,
+    "files_read": 24,
+    "files_total": 40,
+    "not_read": [
+      "web/src/components/BottomSheet.module.css",
+      "web/src/components/BottomSheet.tsx",
+      "web/src/components/Button.tsx",
+      "web/src/components/ConfirmDialog.tsx",
+      "web/src/components/Drawer.tsx",
+      "web/src/components/ImageLightbox.tsx",
+      "web/src/components/Modal.tsx",
+      "web/src/components/Toast.tsx",
+      "web/src/components/Tooltip.tsx",
+      "web/src/components/modal.css",
+      "web/src/features/auth/RegisterForm.tsx",
+      "web/src/features/auth/ResetPasswordForm.tsx",
+      "web/src/features/auth/passwordStrength.ts",
+      "web/src/styles/drawer.css",
+      "web/src/styles/lightbox.css",
+      "web/src/styles/toast.css"
+    ]
+  },
+  "T3-c3": {
+    "tool_calls": 24,
+    "by_tool": {
+      "Bash": 11,
+      "Read": 6,
+      "Edit": 7
+    },
+    "output_tokens": 12464,
+    "subagent_tokens": 74540,
+    "duration_min": 6.9,
+    "files_read": 35,
+    "files_total": 40,
+    "not_read": [
+      "web/src/components/BottomSheet.module.css",
+      "web/src/components/modal.css",
+      "web/src/styles/drawer.css",
+      "web/src/styles/lightbox.css",
+      "web/src/styles/toast.css"
+    ]
+  }
+}

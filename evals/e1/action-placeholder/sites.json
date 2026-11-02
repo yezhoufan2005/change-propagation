@@ -1,0 +1,4 @@
+{"sites": [
+ {"id": "scene-edit", "tier": "direct", "files": [{"path": "thingspanel-frontend-community/src/views/automation/scene-edit/index.vue", "gone": "'：' \\+ instructItem\\.placeholder\""}]},
+ {"id": "edit-action", "tier": "coupled", "files": [{"path": "thingspanel-frontend-community/src/views/automation/linkage-edit/modules/edit-action.vue", "gone": "'：' \\+ instructItem\\.placeholder \\|\\| '--'\""}], "mention": ["edit-action"]}
+]}

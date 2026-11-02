@@ -1,0 +1,113 @@
+diff -ruN fixture/shopfront/docs/api.md /tmp/shop-r5ca/shopfront/docs/api.md
+--- fixture/shopfront/docs/api.md	2026-10-30 12:03:55
++++ /tmp/shop-r5ca/shopfront/docs/api.md	2026-10-30 12:20:21
+@@ -4,12 +4,12 @@
+ 
+ Body: `{ "email": string, "password": string }`
+ 
+-- `password` must be at least 8 characters.
++- `password` must be at least 12 characters.
+ - Returns `201 { id }` or `400 { errors: string[] }`.
+ 
+ ## POST /api/password/reset
+ 
+-Body: `{ "token": string, "password": string }`. Same password rule as registration.
++Body: `{ "token": string, "password": string }`. `password` must be at least 8 characters.
+ 
+ ## GET /api/orders
+ 
+diff -ruN fixture/shopfront/server/src/validators/user.ts /tmp/shop-r5ca/shopfront/server/src/validators/user.ts
+--- fixture/shopfront/server/src/validators/user.ts	2026-10-30 12:03:55
++++ /tmp/shop-r5ca/shopfront/server/src/validators/user.ts	2026-10-30 12:20:15
+@@ -1,4 +1,5 @@
+ export const PASSWORD_MIN_LEN = 8
++export const REGISTRATION_PASSWORD_MIN_LEN = 12
+ 
+ interface RegistrationBody {
+   email?: string
+@@ -8,8 +9,8 @@
+ export function validateRegistration(body: RegistrationBody): string[] {
+   const errors: string[] = []
+   if (!body.email || !/^\S+@\S+\.\S+$/.test(body.email)) errors.push('invalid email')
+-  if (!body.password || body.password.length < PASSWORD_MIN_LEN) {
+-    errors.push(`password must be at least ${PASSWORD_MIN_LEN} characters`)
++  if (!body.password || body.password.length < REGISTRATION_PASSWORD_MIN_LEN) {
++    errors.push(`password must be at least ${REGISTRATION_PASSWORD_MIN_LEN} characters`)
+   }
+   return errors
+ }
+diff -ruN fixture/shopfront/web/src/features/auth/RegisterForm.tsx /tmp/shop-r5ca/shopfront/web/src/features/auth/RegisterForm.tsx
+--- fixture/shopfront/web/src/features/auth/RegisterForm.tsx	2026-10-30 12:03:55
++++ /tmp/shop-r5ca/shopfront/web/src/features/auth/RegisterForm.tsx	2026-10-30 12:19:50
+@@ -2,7 +2,7 @@
+ import { t } from '../../i18n'
+ import { passwordStrength } from './passwordStrength'
+ 
+-const MIN_PASSWORD_LENGTH = 8
++const MIN_PASSWORD_LENGTH = 12
+ 
+ export function RegisterForm({ onSubmit }: { onSubmit: (data: { email: string; password: string }) => void }) {
+   const [email, setEmail] = useState('')
+@@ -26,7 +26,7 @@
+         value={password}
+         minLength={MIN_PASSWORD_LENGTH}
+         onChange={e => setPassword(e.target.value)}
+-        placeholder={t('auth.passwordHint')}
++        placeholder={t('auth.registerPasswordHint')}
+       />
+       <meter min={0} max={3} value={passwordStrength(password)} />
+       {error && <p className="form-error">{error}</p>}
+diff -ruN fixture/shopfront/web/src/features/auth/__tests__/RegisterForm.test.tsx /tmp/shop-r5ca/shopfront/web/src/features/auth/__tests__/RegisterForm.test.tsx
+--- fixture/shopfront/web/src/features/auth/__tests__/RegisterForm.test.tsx	2026-10-30 12:03:55
++++ /tmp/shop-r5ca/shopfront/web/src/features/auth/__tests__/RegisterForm.test.tsx	2026-10-30 12:20:09
+@@ -6,18 +6,18 @@
+   const onSubmit = vi.fn()
+   render(<RegisterForm onSubmit={onSubmit} />)
+   fireEvent.change(screen.getByPlaceholderText('邮箱'), { target: { value: 'a@b.com' } })
+-  fireEvent.change(screen.getByPlaceholderText('密码（至少 8 位）'), { target: { value: password } })
++  fireEvent.change(screen.getByPlaceholderText('密码（至少 12 位）'), { target: { value: password } })
+   fireEvent.click(screen.getByText('注册'))
+   return onSubmit
+ }
+ 
+ describe('RegisterForm', () => {
+-  it('rejects a 7-character password', () => {
+-    expect(fill('abc1234')).not.toHaveBeenCalled()
+-    expect(screen.getByText('密码长度不能少于 8 位')).toBeTruthy()
++  it('rejects an 11-character password', () => {
++    expect(fill('abcdefg1234')).not.toHaveBeenCalled()
++    expect(screen.getByText('密码长度不能少于 12 位')).toBeTruthy()
+   })
+ 
+-  it('accepts an 8-character password', () => {
+-    expect(fill('abcd1234')).toHaveBeenCalled()
++  it('accepts a 12-character password', () => {
++    expect(fill('abcdefgh1234')).toHaveBeenCalled()
+   })
+ })
+diff -ruN fixture/shopfront/web/src/i18n/en.json /tmp/shop-r5ca/shopfront/web/src/i18n/en.json
+--- fixture/shopfront/web/src/i18n/en.json	2026-10-30 12:03:55
++++ /tmp/shop-r5ca/shopfront/web/src/i18n/en.json	2026-10-30 12:20:03
+@@ -1,7 +1,8 @@
+ {
+   "auth.email": "Email",
+   "auth.passwordHint": "Password (at least 8 characters)",
+-  "auth.passwordTooShort": "Password must be at least 8 characters",
++  "auth.registerPasswordHint": "Password (at least 12 characters)",
++  "auth.passwordTooShort": "Password must be at least 12 characters",
+   "auth.confirmPassword": "Confirm password",
+   "auth.register": "Sign up",
+   "auth.resetPassword": "Reset password",
+diff -ruN fixture/shopfront/web/src/i18n/zh.json /tmp/shop-r5ca/shopfront/web/src/i18n/zh.json
+--- fixture/shopfront/web/src/i18n/zh.json	2026-10-30 12:03:55
++++ /tmp/shop-r5ca/shopfront/web/src/i18n/zh.json	2026-10-30 12:19:58
+@@ -1,7 +1,8 @@
+ {
+   "auth.email": "邮箱",
+   "auth.passwordHint": "密码（至少 8 位）",
+-  "auth.passwordTooShort": "密码长度不能少于 8 位",
++  "auth.registerPasswordHint": "密码（至少 12 位）",
++  "auth.passwordTooShort": "密码长度不能少于 12 位",
+   "auth.confirmPassword": "确认密码",
+   "auth.register": "注册",
+   "auth.resetPassword": "重置密码",

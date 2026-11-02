@@ -1,0 +1,7 @@
+{
+  "name": "change-propagation",
+  "version": "0.0.1",
+  "description": "Finds the other places a change must reach (look-alike components, drifted copies, both ends of a contract, other layers of a shared rule) and handles them by tier: edit direct hits, confirm inferred couplings, list low-confidence sites.",
+  "author": { "name": "yezhoufan" },
+  "keywords": ["change-propagation", "systematic-edits", "refactoring", "code-search"]
+}

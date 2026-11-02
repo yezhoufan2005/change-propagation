@@ -1,0 +1,17 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.sheet {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 901;
+  padding: 16px;
+  border-radius: 12px 12px 0 0;
+  background: #fff;
+}

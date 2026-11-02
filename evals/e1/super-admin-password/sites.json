@@ -1,0 +1,7 @@
+{"sites": [
+ {"id": "register-form", "tier": "direct", "files": [{"path": "thingspanel-frontend-community/src/views/_builtin/login/modules/register-super-admin.vue", "gone": "value\\.length < 6"}, {"path": "thingspanel-frontend-community/src/views/_builtin/login/modules/register-super-admin.vue", "gone": "密码至少6位"}]},
+ {"id": "backend-init-req", "tier": "coupled", "files": [{"path": "thingspanel-backend-community/internal/model/users.http.go", "gone": "Password +string `json:\"password\" validate:\"required,min=6\"`"}], "mention": ["users.http.go", "SuperAdminInitReq"]},
+ {"id": "backend-validate-password", "tier": "coupled", "files": [{"path": "thingspanel-backend-community/pkg/utils/password_utils.go", "gone": "len\\(password\\) < 6"}], "mention": ["password_utils", "ValidatePassword"]},
+ {"id": "backend-authcore", "tier": "coupled", "files": [{"path": "thingspanel-backend-community/encore-api/internal/authcore/compatibility.go", "gone": "len\\(p\\) < 6"}], "mention": ["compatibility.go", "validPassword", "authcore"]},
+ {"id": "locale-pwd", "tier": "coupled", "files": [{"path": "thingspanel-frontend-community/src/locales/langs/zh-cn/form.json", "gone": "\"form.pwd.tip\": \"密码长度不能小于6位"}], "mention": ["form.pwd.tip", "form.json", "locales"]}
+]}

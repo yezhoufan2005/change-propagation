@@ -1,0 +1,31 @@
+.drawer-root {
+  display: none;
+}
+
+.drawer-root.is-open {
+  display: block;
+}
+
+.drawer-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 800;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 801;
+  width: 320px;
+  background: #fff;
+}
+
+.drawer-left {
+  left: 0;
+}
+
+.drawer-right {
+  right: 0;
+}

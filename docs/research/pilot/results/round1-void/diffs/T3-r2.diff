@@ -1,0 +1,115 @@
+diff -ruN cp-pilot-meta/pristine/shopfront/server/src/services/report.ts cp-run-T3-r2/shopfront/server/src/services/report.ts
+--- cp-pilot-meta/pristine/shopfront/server/src/services/report.ts	2026-10-30 11:51:09
++++ cp-run-T3-r2/shopfront/server/src/services/report.ts	2026-10-30 11:59:12
+@@ -1,17 +1,15 @@
++import { fmtDateUTC } from '../utils/time'
++
+ interface OrderRow {
+   createdAt: string
+   total: number
+ }
+ 
+-// Day key for the daily sales report, e.g. "2026-03-01".
+-function toDay(d: Date): string {
+-  return d.toISOString().slice(0, 10)
+-}
+-
+ export function groupOrdersByDay(orders: OrderRow[]): Record<string, number> {
+   const totals: Record<string, number> = {}
+   for (const o of orders) {
+-    const key = toDay(new Date(o.createdAt))
++    // Day key for the daily sales report, e.g. "2026-03-01".
++    const key = fmtDateUTC(o.createdAt)
+     totals[key] = (totals[key] ?? 0) + o.total
+   }
+   return totals
+diff -ruN cp-pilot-meta/pristine/shopfront/server/src/utils/time.ts cp-run-T3-r2/shopfront/server/src/utils/time.ts
+--- cp-pilot-meta/pristine/shopfront/server/src/utils/time.ts	2026-10-30 11:51:16
++++ cp-run-T3-r2/shopfront/server/src/utils/time.ts	2026-10-30 11:59:06
+@@ -1,4 +1,11 @@
++/** Format as YYYY-MM-DD in the server's local time zone. */
+ export function fmtDate(input: Date | string): string {
+   const d = typeof input === 'string' ? new Date(input) : input
+   return [d.getFullYear(), String(d.getMonth() + 1).padStart(2, '0'), String(d.getDate()).padStart(2, '0')].join('-')
++}
++
++/** Format as YYYY-MM-DD in UTC. */
++export function fmtDateUTC(input: Date | string): string {
++  const d = typeof input === 'string' ? new Date(input) : input
++  return d.toISOString().slice(0, 10)
+ }
+diff -ruN cp-pilot-meta/pristine/shopfront/web/src/features/orders/OrderList.tsx cp-run-T3-r2/shopfront/web/src/features/orders/OrderList.tsx
+--- cp-pilot-meta/pristine/shopfront/web/src/features/orders/OrderList.tsx	2026-10-30 11:50:18
++++ cp-run-T3-r2/shopfront/web/src/features/orders/OrderList.tsx	2026-10-30 11:58:43
+@@ -1,4 +1,5 @@
+ import { t } from '../../i18n'
++import { formatDate } from '../../utils/date'
+ import { formatPrice } from '../../utils/format'
+ 
+ interface Order {
+@@ -8,9 +9,6 @@
+   total: number
+ }
+ 
+-const fmt = (iso: string) =>
+-  new Date(iso).toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '-')
+-
+ export function OrderList({ orders }: { orders: Order[] }) {
+   if (orders.length === 0) return <p>{t('orders.empty')}</p>
+   return (
+@@ -19,7 +17,7 @@
+         {orders.map(o => (
+           <tr key={o.id}>
+             <td>{o.no}</td>
+-            <td>{fmt(o.createdAt)}</td>
++            <td>{formatDate(new Date(o.createdAt))}</td>
+             <td>{formatPrice(o.total)}</td>
+           </tr>
+         ))}
+diff -ruN cp-pilot-meta/pristine/shopfront/web/src/features/profile/ProfilePage.tsx cp-run-T3-r2/shopfront/web/src/features/profile/ProfilePage.tsx
+--- cp-pilot-meta/pristine/shopfront/web/src/features/profile/ProfilePage.tsx	2026-10-30 11:50:28
++++ cp-run-T3-r2/shopfront/web/src/features/profile/ProfilePage.tsx	2026-10-30 11:58:54
+@@ -1,4 +1,4 @@
+-import { formatTime } from '../../utils/format'
++import { formatDate, formatTime } from '../../utils/date'
+ 
+ interface User {
+   name: string
+@@ -11,7 +11,7 @@
+   return (
+     <section className="profile">
+       <h2>{user.name}</h2>
+-      <p>注册时间：{`${joined.getFullYear()}-${joined.getMonth() + 1}-${joined.getDate()}`}</p>
++      <p>注册时间：{formatDate(joined)}</p>
+       <p>最近登录：{formatTime(user.lastLoginAt)}</p>
+     </section>
+   )
+diff -ruN cp-pilot-meta/pristine/shopfront/web/src/utils/date.ts cp-run-T3-r2/shopfront/web/src/utils/date.ts
+--- cp-pilot-meta/pristine/shopfront/web/src/utils/date.ts	2026-10-30 11:50:06
++++ cp-run-T3-r2/shopfront/web/src/utils/date.ts	2026-10-30 11:58:23
+@@ -5,3 +5,11 @@
+   const day = String(d.getDate()).padStart(2, '0')
+   return `${y}-${m}-${day}`
+ }
++
++/** Format a timestamp (ms) as YYYY-MM-DD HH:mm in local time, e.g. 2026-03-05 09:07. */
++export function formatTime(ts: number): string {
++  const d = new Date(ts)
++  const hh = String(d.getHours()).padStart(2, '0')
++  const mm = String(d.getMinutes()).padStart(2, '0')
++  return `${formatDate(d)} ${hh}:${mm}`
++}
+diff -ruN cp-pilot-meta/pristine/shopfront/web/src/utils/format.ts cp-run-T3-r2/shopfront/web/src/utils/format.ts
+--- cp-pilot-meta/pristine/shopfront/web/src/utils/format.ts	2026-10-30 11:50:11
++++ cp-run-T3-r2/shopfront/web/src/utils/format.ts	2026-10-30 11:58:30
+@@ -1,10 +1,3 @@
+ export function formatPrice(cents: number): string {
+   return '¥' + (cents / 100).toFixed(2)
+ }
+-
+-// Order timestamps, e.g. 2026-03-05 09:07
+-export function formatTime(ts: number): string {
+-  const d = new Date(ts)
+-  const pad = (n: number) => (n < 10 ? '0' + n : String(n))
+-  return d.getFullYear() + '-' + pad(d.getMonth()) + '-' + pad(d.getDate()) + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes())
+-}

@@ -1,0 +1,20 @@
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 85vh;
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: 24px;
+  color: #fff;
+}

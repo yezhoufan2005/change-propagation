@@ -1,0 +1,44 @@
+{
+ "sites": [
+  {
+   "id": "user-list",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/views/management/user/index.vue",
+     "gone": "row\\.lastVisitTime"
+    }
+   ]
+  },
+  {
+   "id": "api-typing",
+   "tier": "direct",
+   "files": [
+    {
+     "path": "thingspanel-frontend-community/src/typings/api.d.ts",
+     "gone": "lastVisitTime: string \\| null"
+    }
+   ]
+  },
+  {
+   "id": "backend-dal",
+   "tier": "exclude",
+   "files": [
+    {
+     "path": "thingspanel-backend-community/internal/dal/users.go",
+     "keep": "\"last_visit_time\":\\s+result\\.LastVisitTime"
+    }
+   ]
+  },
+  {
+   "id": "backend-model",
+   "tier": "exclude",
+   "files": [
+    {
+     "path": "thingspanel-backend-community/internal/model/users.gen.go",
+     "keep": "json:\"last_visit_time\""
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,47 @@
+{
+  "T1": {
+    "scenario": "S1 requirement coupling",
+    "prompt": "把注册表单的密码最小长度从 8 位改成 12 位。",
+    "edit_marker": "12",
+    "sites": [
+      {"id": "register-form", "tier": "direct", "files": ["web/src/features/auth/RegisterForm.tsx"], "mention": ["RegisterForm.tsx", "MIN_PASSWORD_LENGTH"]},
+      {"id": "i18n-zh", "tier": "direct", "files": ["web/src/i18n/zh.json"], "mention": ["zh.json"]},
+      {"id": "i18n-en", "tier": "direct", "files": ["web/src/i18n/en.json"], "mention": ["en.json"]},
+      {"id": "register-test", "tier": "direct", "files": ["web/src/features/auth/__tests__/RegisterForm.test.tsx"], "mention": ["RegisterForm.test"]},
+      {"id": "reset-form", "tier": "coupled", "files": ["web/src/features/auth/ResetPasswordForm.tsx"], "mention": ["ResetPasswordForm"]},
+      {"id": "server-validator", "tier": "coupled", "files": ["server/src/validators/user.ts"], "mention": ["validators/user", "PASSWORD_MIN_LEN", "validateRegistration"]},
+      {"id": "api-doc", "tier": "coupled", "files": ["docs/api.md"], "mention": ["api.md"]},
+      {"id": "strength-meter", "tier": "review", "files": ["web/src/features/auth/passwordStrength.ts"], "mention": ["passwordStrength"]}
+    ]
+  },
+  "T2": {
+    "scenario": "S2 scattered category",
+    "prompt": "给项目里所有弹窗类组件加上打开时的淡入动画，时长 200ms。",
+    "edit_marker": "fade|opacity|animation|keyframes|transition|animate",
+    "sites": [
+      {"id": "modal", "tier": "direct", "files": ["web/src/components/Modal.tsx", "web/src/components/modal.css"], "mention": ["Modal.tsx", "modal.css"]},
+      {"id": "confirm-dialog", "tier": "direct", "files": ["web/src/components/ConfirmDialog.tsx"], "mention": ["ConfirmDialog"]},
+      {"id": "bottom-sheet", "tier": "direct", "files": ["web/src/components/BottomSheet.tsx", "web/src/components/BottomSheet.module.css"], "mention": ["BottomSheet"]},
+      {"id": "image-lightbox", "tier": "direct", "files": ["web/src/components/ImageLightbox.tsx", "web/src/styles/lightbox.css"], "mention": ["ImageLightbox", "lightbox"]},
+      {"id": "address-picker-inline", "tier": "direct", "files": ["web/src/features/checkout/CheckoutPage.tsx"], "mention": ["address-picker", "CheckoutPage", "pickerOpen"]},
+      {"id": "coupon-layer", "tier": "direct", "files": ["web/src/features/checkout/couponLayer.ts"], "mention": ["couponLayer", "showCouponLayer"]},
+      {"id": "drawer", "tier": "review", "files": ["web/src/components/Drawer.tsx", "web/src/styles/drawer.css"], "mention": ["Drawer"]},
+      {"id": "toast", "tier": "review", "files": ["web/src/components/Toast.tsx", "web/src/styles/toast.css"], "mention": ["Toast"]},
+      {"id": "tooltip", "tier": "exclude", "files": ["web/src/components/Tooltip.tsx"], "mention": ["Tooltip"]}
+    ]
+  },
+  "T3": {
+    "scenario": "S3 duplicate consolidation",
+    "prompt": "项目里有不少重复的日期格式化逻辑，帮我统一抽取成公共工具函数，并替换掉所有重复的实现。",
+    "edit_marker": "",
+    "sites": [
+      {"id": "web-date-util", "tier": "direct", "files": ["web/src/utils/date.ts"], "mention": ["utils/date", "date.ts"], "note": "existing canonical helper, never adopted"},
+      {"id": "web-formatTime", "tier": "direct", "files": ["web/src/utils/format.ts"], "mention": ["formatTime"], "note": "drift: month missing +1"},
+      {"id": "web-orderlist-fmt", "tier": "direct", "files": ["web/src/features/orders/OrderList.tsx"], "mention": ["OrderList"]},
+      {"id": "web-profile-inline", "tier": "direct", "files": ["web/src/features/profile/ProfilePage.tsx"], "mention": ["ProfilePage"], "note": "drift: no zero padding"},
+      {"id": "server-fmtDate", "tier": "direct", "files": ["server/src/utils/time.ts"], "mention": ["fmtDate", "time.ts"]},
+      {"id": "server-report-toDay", "tier": "direct", "files": ["server/src/services/report.ts"], "mention": ["toDay", "report.ts"], "note": "drift: UTC day key"},
+      {"id": "countdown", "tier": "exclude", "files": ["web/src/features/orders/useCountdown.ts"], "mention": ["useCountdown"]}
+    ]
+  }
+}
